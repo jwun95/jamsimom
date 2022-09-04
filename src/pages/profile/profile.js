@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { data } from '../../data/db'
 import star from '../../static/star.svg'
+import thumbnail from '../../static/thumbnail.svg'
 // Components
 import Section from '../../components/Section/Section'
 import Tag from '../../components/Tag/Tag'
@@ -107,6 +108,9 @@ const Profile = () => {
       <tools.Divider />
       <Section subtitle="시터 인터뷰">
         <styles.SubTitle>“마음을 다하는 시터, 박주영입니다!”</styles.SubTitle>
+        <styles.Interview>
+          <img src={thumbnail} alt="thumbnail" />
+        </styles.Interview>
       </Section>
       <Button fullWidth onClick={handleClick}>
         시터 선택

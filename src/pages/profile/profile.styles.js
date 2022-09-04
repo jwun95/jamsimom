@@ -65,3 +65,9 @@ margin: 8px 0;
   margin-left: 6px;
 }
 `
+
+export const Interview = styled.div`
+img {
+  width: 100%;
+}
+`

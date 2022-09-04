@@ -44,7 +44,7 @@ const Profile = ({ user = defaultUser, ...props }) => {
           </styles.Grade>
         </section>
       </styles.Profile>
-      <p className='p-7'>{user.info}</p>
+      <p className="p-7">{user.info}</p>
     </>
   )
 }

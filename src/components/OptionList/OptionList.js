@@ -5,7 +5,7 @@ import * as tools from '../../assets/styles/tools'
 
 const OptionList = ({
   num = 1,
-    address = '서울특별시 강남구 청담동',
+    address = '서울특별시 강남구 삼성동',
     date = '2022-09-05',
     tags = ['동일성별', '등 / 하원', '조건'],
   time='오후 9시-11시',

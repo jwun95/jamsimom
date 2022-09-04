@@ -23,7 +23,7 @@ const Register = () => {
       <Section subtitle="시터 정보">
         {' '}
         <tools.Card>
-          <Profile />
+          <Profile user={data.user[0]} />
         </tools.Card>
       </Section>
 
@@ -43,8 +43,8 @@ const Register = () => {
       <Section subtitle="예상 가격">
         {' '}
         <div className="flex justify-between">
-          <span>1시간</span>
-          <span className="font-bold">24,000원</span>
+          <span>2시간</span>
+          <span className="font-bold">30,000원</span>
         </div>
         <tools.Divider className="mt-8" />
         <span className="block text-center py-4">

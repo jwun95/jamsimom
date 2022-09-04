@@ -1,9 +1,12 @@
+// Base
 import * as styles from './result.styles'
 import { BsCheck2Circle } from 'react-icons/bs'
-import Profile from '../../components/Profile/Profile'
 import * as tools from '../../assets/styles/tools'
-import Button from '../../components/Button/Button'
 import { useNavigate } from 'react-router-dom'
+import {data } from '../../data/db'
+// Components
+import Profile from '../../components/Profile/Profile'
+import Button from '../../components/Button/Button'
 
 const Result = () => {
 
@@ -27,21 +30,21 @@ const Result = () => {
         <section className="p-4 mt-10">
           <styles.Info>
             <span>신청일시</span>
-            <span>2022-08-27</span>
+            <span>2022-09-05</span>
           </styles.Info>
           <styles.Info>
             <span>돌봄 날짜</span>
-            <span>2022-08-29 | 오후 4시-5시</span>
+            <span>2022-09-05 | 오후 9시-11시</span>
           </styles.Info>
           <styles.Info>
             <span>예상 가격</span>
-            <span>1시간 24,000원</span>
+            <span>1시간 30,000원</span>
           </styles.Info>
           <styles.Info>
             <span>시터 정보</span>
           </styles.Info>
           <tools.Card>
-            <Profile />
+            <Profile user={data.user[0]} />
           </tools.Card>
           <div className="text-sm p-4">
             <p>
@@ -52,7 +55,7 @@ const Result = () => {
               이용이 제한될 수 있습니다.
             </p>
           </div>
-          <Button outline={true} fullWidth={true} onClick={ goHome }>
+          <Button outline={true} fullWidth={true} onClick={goHome}>
             홈으로 가기
           </Button>
         </section>
