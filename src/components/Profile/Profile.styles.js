@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Common } from '../../assets/styles/common'
 
 
 export const Profile = styled.div`
@@ -10,7 +9,6 @@ export const Profile = styled.div`
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.05);
   }
 `
 
@@ -23,4 +21,9 @@ export const ProfileImage = styled.div`
     width: 60px;
     height: 60px;
   }
+`
+
+export const Grade = styled.div`
+  font-size: 12px;
+  display: flex;
 `

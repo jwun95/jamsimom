@@ -4,28 +4,36 @@ import * as tools from '../../assets/styles/tools'
 
 
 const OptionList = ({
-  num = 2,
-    address = '서울특별시 관악구 봉천동',
-    date = '2022-08-29',
+  num = 1,
+    address = '서울특별시 강남구 청담동',
+    date = '2022-09-05',
     tags = ['동일성별', '등 / 하원', '조건'],
-  time='오후 4시-5시',
+  time='오후 9시-11시',
   ...props
 }) => {
   return (
     <styles.OptionList {...props}>
       <styles.Option>
         <span>아이</span>
-        <Tag isColor={false}>{num}명</Tag>
+        <Tag disabled isColor={false}>
+          {num}명
+        </Tag>
       </styles.Option>
       <styles.Option>
         <span>주소</span>
-        <Tag isColor={false}>{address}</Tag>
+        <Tag disabled isColor={false}>
+          {address}
+        </Tag>
       </styles.Option>
       <styles.Option>
         <span>날짜</span>
-        <Tag isColor={false}>{date}</Tag>
+        <Tag disabled isColor={false}>
+          {date}
+        </Tag>
         <span className="ml-3">시간</span>
-        <Tag isColor={false}>{time}</Tag>
+        <Tag disabled isColor={false}>
+          {time}
+        </Tag>
       </styles.Option>
       <p className="mt-3">추가조건</p>
       <tools.TagWrapper className="mt-3">

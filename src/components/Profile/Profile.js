@@ -2,6 +2,7 @@ import * as styles from './Profile.styles'
 import { Tag } from '../Tag/Tag.styles'
 import image from '../../static/profile.png'
 import * as tools from '../../assets/styles/tools'
+import star from '../../static/star.svg'
 
 const defaultUser = {
   id: 1,
@@ -16,28 +17,35 @@ const defaultUser = {
 
 const Profile = ({ user = defaultUser, ...props }) => {
   return (
-    <styles.Profile>
-      <styles.ProfileImage>
-        <img src={user.image} alt="profile" />
-      </styles.ProfileImage>
-      <section>
-        <div>
-          <span className="font-bold">{user.name}</span>
-          <span className="ml-2">
-            {user.age} / {user.sex}
-          </span>
-        </div>
-        <p className="mt-2">{user.address}</p>
-        <tools.TagWrapper>
-          {user.tags.map((item, idx) => (
-            <Tag small={true} isColor={true} key={idx}>
-              {item}
-            </Tag>
-          ))}
-        </tools.TagWrapper>
-        <p>{user.info}</p>
-      </section>
-    </styles.Profile>
+    <>
+      {' '}
+      <styles.Profile>
+        <styles.ProfileImage>
+          <img src={user.image} alt="profile" />
+        </styles.ProfileImage>
+        <section>
+          <div>
+            <span className="font-bold">{user.name}</span>
+            <span className="ml-2">
+              {user.age} / {user.sex}
+            </span>
+          </div>
+          <p className="mt-2">{user.address}</p>
+          <tools.TagWrapper>
+            {user.tags.map((item, idx) => (
+              <Tag isColor key={idx} fontSize="12px">
+                {item}
+              </Tag>
+            ))}
+          </tools.TagWrapper>
+          <styles.Grade>
+            <img src={star} alt="star" />
+            <span className="font-bold">5.0/5 (4명)</span>
+          </styles.Grade>
+        </section>
+      </styles.Profile>
+      <p className='p-7'>{user.info}</p>
+    </>
   )
 }
 

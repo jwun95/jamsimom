@@ -30,12 +30,32 @@ const Profile = () => {
             {sitter.age} / {sitter.sex}
           </span>
         </styles.Name>
-        <ul>
-          <li></li>
-        </ul>
-        <ul>
-          <li></li>
-        </ul>
+        <styles.TagWrapper>
+          <li>
+            <Tag fontSize="12px" disabled>
+              대학생
+            </Tag>
+          </li>
+          <li>
+            <Tag fontSize="12px" disabled>
+              미술
+            </Tag>
+          </li>
+        </styles.TagWrapper>
+        <styles.TagWrapper>
+          <li>
+            {' '}
+            <Tag fontSize="12px" disabled>
+              잠시만 교육 인증
+            </Tag>
+          </li>
+          <li>
+            {' '}
+            <Tag fontSize="12px" disabled>
+              교직 이수
+            </Tag>
+          </li>
+        </styles.TagWrapper>
         <styles.Grade>
           <img src={star} alt="star" />
           <span className="font-bold">5.0/5 (4명)</span>
@@ -52,11 +72,13 @@ const Profile = () => {
         </styles.List>
         <tools.Divider />
         <styles.SubTitle>시터 자기 소개</styles.SubTitle>
-        <styles.List>
+        <ul className="py-[8px]">
           <li>
-            <Tag>신선 대학교 조형학과</Tag>
+            <Tag fontSize="12px" disabled>
+              신선 대학교 조형학과
+            </Tag>
           </li>
-        </styles.List>
+        </ul>
         <styles.Text>
           안녕하세요! 저는 24살 현재 졸업을 앞둔 박주영이라고 합니다. 저는
           원래부터 아이들을 정말 좋아해서 제가 인연을 맺은 아이들에게는 많은

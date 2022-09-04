@@ -1,8 +1,8 @@
 import * as styles from './Tag.styles'
 
-const Tag = ({ small = false, isColor = true, children, ...props }) => {
+const Tag = ({ fontSize = '1rem', isColor = true, children, ...props }) => {
   return (
-    <styles.Tag small={small} isColor={isColor} {...props}>
+    <styles.Tag fontSize={fontSize} isColor={isColor} {...props}>
       {children}
     </styles.Tag>
   )

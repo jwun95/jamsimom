@@ -51,3 +51,17 @@ export const Info = styled.p`
   font-size: 14px;
   padding: 8px 0;
 `
+
+export const TagWrapper = styled.ul`
+display: flex;
+justify-content: center;
+margin: 8px 0;
+
+& > li {
+  margin-right: 6px;
+}
+
+& > li + li {
+  margin-left: 6px;
+}
+`

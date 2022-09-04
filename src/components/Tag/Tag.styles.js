@@ -2,8 +2,10 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { Common } from '../../assets/styles/common'
 
+
+
 export const Tag = styled.button`
-  font-size: ${({ small }) => (small ? '0.8rem' : '1rem')};
+  font-size: ${({ fontSize }) => fontSize};
   background-color: ${({ isColor }) =>
     isColor ? `${Common.colors.primary_lighter}` : 'white'};
   border-radius: 9999px;
