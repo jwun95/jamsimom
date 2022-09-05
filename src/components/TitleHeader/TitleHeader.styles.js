@@ -14,4 +14,5 @@ export const Header = styled.header`
   margin: auto;
   font-size: 1.2rem;
   font-weight: bold;
+  z-index: 999;
 `

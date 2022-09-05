@@ -11,12 +11,11 @@ import MuiRadioGroup from '../../mui/MuiRadioGroup/MuiRadioGroup'
 import MuiDatePicker from '../../mui/MuiDatePicker/MuiDatePicker'
 
 const Baby = () => {
+  const navigator = useNavigate()
 
-    const navigator = useNavigate()
-
-    const handleClick = () => {
-        navigator('/')
-    }
+  const handleClick = () => {
+    navigator('/')
+  }
 
   return (
     <TitleNavLayout title="아이 등록">
