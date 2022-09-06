@@ -35,8 +35,20 @@ export const data = {
     { text: '시간 약속을 잘 지키고 성실해요', image: lee },
   ],
   baby: [
-    { name: '이하영', age: 3, sex: '여', notification: '땅콩 알러지 있음' },
-    { name: '이은우', age: 2, sex: '남', notification: '낯 가림이 심함' },
-    { name: '이하윤', age: 1, sex: '여', notification: '자주 넘어짐' },
+    {
+      id: 1,
+      name: '이하영',
+      age: 3,
+      sex: '여',
+      notification: '땅콩 알러지 있음',
+    },
+    {
+      id: 2,
+      name: '이은우',
+      age: 2,
+      sex: '남',
+      notification: '낯 가림이 심함',
+    },
+    { id: 3, name: '이하윤', age: 1, sex: '여', notification: '자주 넘어짐' },
   ],
 }

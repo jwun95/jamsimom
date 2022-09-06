@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Common } from './common'
+import { BsCheckSquare } from 'react-icons/bs'
 
 export const Divider = styled.div`
   border-top: 3px solid #f8f8f8;
@@ -51,4 +52,12 @@ export const Input = styled.input`
   margin-top: 0.6rem;
   height: 44px;
   padding: 1rem;
+`
+
+export const CheckIcon = styled(BsCheckSquare)`
+  fill: lightgray;
+  &.active {
+    background-color: ${Common.colors.brown_light};
+    fill: white;
+  }
 `
