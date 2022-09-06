@@ -1,4 +1,6 @@
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+import { Link } from 'react-router-dom'
 import { Common } from './common'
 import { BsCheckSquare } from 'react-icons/bs'
 
@@ -30,21 +32,6 @@ export const ColorSection = styled.section`
   align-items: center; // 플렉스를 주면 height 100%, aline-items주면 부모 height 무시
 `
 
-export const SearchButton = styled.button`
-  width: 100%;
-  border: 2px solid lightgrey;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 4px;
-  font-weight: bold;
-  padding: 8px;
-
-  &:hover {
-    border: 2px solid ${Common.colors.primary};
-  }
-`
-
 export const Input = styled.input`
   width: 100%;
   border: 1px solid lightgray;
@@ -60,4 +47,33 @@ export const CheckIcon = styled(BsCheckSquare)`
     background-color: ${Common.colors.brown_light};
     fill: white;
   }
+`
+
+// Link Button
+const outLine = css`
+  border: 1px solid ${Common.colors.primary};
+  background-color: white;
+
+  &:hover {
+    background-color: ${Common.colors.primary_light};
+  }
+`
+
+const noLine = css`
+  background-color: ${Common.colors.primary};
+
+  &:hover {
+    background-color: ${Common.colors.primary_darker};
+  }
+`
+
+export const LinkButton = styled(Link)`
+  ${({ outline }) =>
+    outline ? outLine : noLine} // props로 들어와서 {}로 감싸야한다.
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
+  height: ${({ fullWidth }) => (fullWidth ? '3.2rem' : 'auto')};
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 8px 16px;
 `

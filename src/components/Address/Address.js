@@ -2,13 +2,13 @@ import DaumPostcode from 'react-daum-postcode'
 import { useState } from 'react'
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
+import {MdOutlineArrowForwardIos } from 'react-icons/md'
 import * as styles from './Address.styles'
-import * as tools from '../../assets/styles/tools'
 
 const Address = () => {
   const [openPostcode, setOpenPostcode] = useState(false)
   const [open, setOpen] = useState(false)
-  const [location, setLocation] = useState('클릭해서 주소를 입력해주세요.')
+  const [location, setLocation] = useState('주소 찾기')
   const handleClose = () => setOpen(false)
 
   const handle = {
@@ -27,9 +27,10 @@ const Address = () => {
   }
   return (
     <>
-      <tools.SearchButton onClick={handle.clickButton}>
+      <styles.SearchAddressButton onClick={handle.clickButton}>
         {location}
-      </tools.SearchButton>
+        <MdOutlineArrowForwardIos />
+      </styles.SearchAddressButton>
       <Modal
         open={open}
         onClose={handleClose}

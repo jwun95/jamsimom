@@ -1,9 +1,15 @@
 import * as styles from './CheckBox.styles'
 import * as tools from '../../assets/styles/tools'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const CheckBox = ({ name, onClick, ...props }) => {
+const CheckBox = ({ name, onClick, allChecked, ...props }) => {
   const [active, setActvie] = useState(false)
+
+  useEffect(() => {
+    if (!allChecked) {
+      setActvie(false)
+    }
+  }, [allChecked])
 
   const handleClick = () => {
     setActvie(!active)

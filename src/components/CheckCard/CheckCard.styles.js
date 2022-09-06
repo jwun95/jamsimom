@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Common } from '../../assets/styles/common'
 
 export const Child = styled.button`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -15,6 +16,10 @@ export const Child = styled.button`
 
   p {
     margin-left: 2rem;
+  }
+
+  &.active {
+    border: 1px solid ${Common.colors.primary};
   }
 `
 

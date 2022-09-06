@@ -27,6 +27,9 @@ const Find = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [selection, setSelection] = useState([])
   const [when, setWhen] = useState('오전')
+
+  console.log(selection)
+
   const open = Boolean(anchorEl)
   const handleMenuClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -48,12 +51,11 @@ const Find = () => {
     setTimeInfo(event.target.value)
   }
 
-  // 체크 카드 하나 선택
+  // 체크 카드 단일 선택
   const handleSingleCheck = (checked, idx) => {
     if (checked) {
       setSelection((prev) => [...prev, idx])
-    }
-    else {
+    } else {
       setSelection(selection.filter((id) => id !== idx))
     }
   }
@@ -69,14 +71,24 @@ const Find = () => {
     }
   }
 
-  const list = children.map((child, idx) => (
-    <CheckCard key={idx} child={child} idx={idx} onClick={handleSingleCheck} />
+  // 아이 CheckCard
+  const list = children.map((child) => (
+    <CheckCard
+      key={child.id}
+      child={child}
+      onClick={handleSingleCheck}
+      checked={selection.includes(child.id) ? true : false}
+    />
   ))
 
   return (
     <TitleNavLayout title="시터 검색">
       <Section subtitle="돌봄대상" required={true}>
-        <CheckBox name="전체선택" onClick={handleAllCheck} />
+        <CheckBox
+          name="전체선택"
+          onClick={handleAllCheck}
+          allChecked={selection.length === children.length ? true : false}
+        />
         <ul className="mt-4">{list}</ul>
       </Section>
       <Section subtitle="주소" required={true}>

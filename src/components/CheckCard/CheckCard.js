@@ -1,19 +1,33 @@
 import * as styles from './CheckCard.styles'
 import * as tools from '../../assets/styles/tools'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const CheckCard = ({ child, idx, onClick, ...props }) => {
+const CheckCard = ({ child, idx, onClick, checked, ...props }) => {
   const [state, setState] = useState(false)
 
   const handleClick = () => {
     setState(!state)
-    onClick(!state, idx)
+    onClick(!state, child.id)
   }
 
+  useEffect(() => {
+    if (checked) {
+      setState(true)
+    } else {
+      setState(false)
+    }
+  }, [checked])
+
   return (
-    <styles.Child onClick={handleClick} {...props}>
+    <styles.Child
+      onClick={handleClick}
+      {...props}
+      className={state ? 'active' : ''}
+    >
       <div>
-        <tools.CheckIcon className={'inline-block ' + (state ? 'active' : '')} />
+        <tools.CheckIcon
+          className={'inline-block ' + (state ? 'active' : '')}
+        />
         <span className="ml-4 font-bold">{child.name}</span>
         <span className="ml-4">
           {child.sex} / {child.age}살
