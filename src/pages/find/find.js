@@ -25,6 +25,7 @@ const Find = () => {
   const handle = {
     getTime: (time) => {
       setTimeInfo(time)
+      console.log(timeInfo)
     }
   }
 
@@ -84,7 +85,7 @@ const Find = () => {
         <TimeSelector onGetTime={handle.getTime } />
         {timeInfo ? <Notification className="mt-10" /> : null}
       </Section>
-      <Button className="mt-5" fullWidth={true} url="list">
+      <Button className="mt-5" fullWidth={true} url="/list">
         시터 검색
       </Button>
     </TitleNavLayout>

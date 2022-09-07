@@ -1,7 +1,6 @@
 // Base
 import TitleLayout from '../../layouts/TitleLayout/TitleLayout'
 import { data } from '../../data/db'
-import { useNavigate } from 'react-router-dom'
 import * as styles from './register.styles'
 import * as tools from '../../assets/styles/tools'
 // Components
@@ -11,12 +10,6 @@ import OptionList from '../../components/OptionList/OptionList'
 import Button from '../../components/Button/Button'
 
 const Register = () => {
-
-  const navigator = useNavigate()
-
-  const handleClick = () => {
-    navigator('/result')
-  }
 
   return (
     <TitleLayout title="시터 매칭">
@@ -51,7 +44,7 @@ const Register = () => {
           현재 정보대로 시터를 신청하시겠습니까?
         </span>
       </Section>
-      <Button fullWidth={true} onClick={handleClick}>
+      <Button fullWidth={true} url="/result">
         시터 신청
       </Button>
     </TitleLayout>

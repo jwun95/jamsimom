@@ -30,7 +30,7 @@ const Baby = () => {
         <styles.ButtonText>+ 아이추가</styles.ButtonText>
       </Button>
       <tools.Divider className="my-5"></tools.Divider>
-      <Button fullWidth url=" ">
+      <Button fullWidth url="/">
         <span className="text-lg">등록 완료</span>
       </Button>
     </TitleNavLayout>

@@ -13,7 +13,7 @@ const Button = ({
 
   const handle = {
     goPage: (url) => {
-      navigate('/' + url)
+      navigate(url)
     },
   }
 
@@ -21,7 +21,7 @@ const Button = ({
     <styles.Button
       fullWidth={fullWidth}
       outline={outline}
-      onClick={() => url ? handle.goPage(url) : onClick}
+      onClick={() => url ? handle.goPage(url) : onClick()}
       {...props}
     >
       <span>{children}</span>

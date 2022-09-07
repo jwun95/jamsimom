@@ -1,6 +1,5 @@
 // Base
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { data } from '../../data/db'
 import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout'
 import * as styles from './home.styles'
@@ -14,7 +13,6 @@ import Section from '../../components/Section/Section'
 import MuiAccordion from '../../mui/MuiAccordion/MuiAccordion'
 
 const Home = () => {
-  const navigate = useNavigate()
   const [reviews, setReviews] = useState(data.reviews)
   const [ranker, setRanker] = useState(data.user[0])
   const [locationState, setLocationState] = useState(false)
@@ -28,10 +26,6 @@ const Home = () => {
     </styles.AccordionItem>
   ))
 
-  const goFindPage = () => {
-    navigate('/find')
-  }
-
   return (
     <DefaultLayout>
       <tools.ColorSection className="flex justify-between items-center mb-10">
@@ -39,7 +33,7 @@ const Home = () => {
           <p>잠시맘이 직접 선정한</p>
           <p>능력있는 시터들을 만나보세요!</p>
         </styles.SectionLeft>
-        <Button onClick={goFindPage}>시터 찾기</Button>
+        <Button url="/find">시터 찾기</Button>
       </tools.ColorSection>
       <Section subtitle="우리 동네 시터">
         <Location locationState={locationState} />

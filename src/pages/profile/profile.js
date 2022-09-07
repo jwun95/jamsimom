@@ -1,7 +1,6 @@
 import TitleLayout from '../../layouts/TitleLayout/TitleLayout'
 import * as styles from './profile.styles'
 import * as tools from '../../assets/styles/tools'
-import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { data } from '../../data/db'
 import star from '../../static/star.svg'
@@ -12,12 +11,7 @@ import Tag from '../../components/Tag/Tag'
 import Button from '../../components/Button/Button'
 
 const Profile = () => {
-  const navigator = useNavigate()
   const [sitter, setSitter] = useState(data.user[0])
-
-  const handleClick = () => {
-    navigator('/register')
-  }
 
   return (
     <TitleLayout title="시터 정보">
@@ -112,7 +106,7 @@ const Profile = () => {
           <img src={thumbnail} alt="thumbnail" />
         </styles.Interview>
       </Section>
-      <Button fullWidth onClick={handleClick}>
+      <Button fullWidth url="/register">
         시터 선택
       </Button>
     </TitleLayout>

@@ -1,6 +1,5 @@
 // Base
 import TitleLayout from '../../layouts/TitleLayout/TitleLayout'
-import { useNavigate } from 'react-router-dom'
 import { data } from '../../data/db'
 import * as tools from '../../assets/styles/tools'
 // Components
@@ -13,8 +12,6 @@ import Button from '../../components/Button/Button'
 import MuiAccordion from '../../mui/MuiAccordion/MuiAccordion'
 
 const List = () => {
-
-  const navigator = useNavigate()
 
   const handleClick = () => {
     navigator('/profile')

@@ -16,7 +16,9 @@ const TimeSelector = ({ onGetTime, ...props }) => {
     change: (e) => {
       const { value, name } = e.target
       setTimeInfo({ ...props, [name]: parseInt(value) })
-      onGetTime(timeInfo)
+      setTimeout(() => {
+        onGetTime(timeInfo)
+      }, 0)
     },
     menuClick: (e) => {
       setAnchorEl(e.currentTarget)

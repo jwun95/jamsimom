@@ -2,19 +2,12 @@
 import * as styles from './result.styles'
 import { BsCheck2Circle } from 'react-icons/bs'
 import * as tools from '../../assets/styles/tools'
-import { useNavigate } from 'react-router-dom'
 import {data } from '../../data/db'
 // Components
 import Profile from '../../components/Profile/Profile'
 import Button from '../../components/Button/Button'
 
 const Result = () => {
-
-  const navigator = useNavigate()
-
-  const goHome = () => {
-      navigator('/')
-    }
 
     return (
       <>
@@ -55,7 +48,7 @@ const Result = () => {
               이용이 제한될 수 있습니다.
             </p>
           </div>
-          <Button outline={true} fullWidth={true} onClick={goHome}>
+          <Button outline={true} fullWidth={true} url="/">
             홈으로 가기
           </Button>
         </section>
