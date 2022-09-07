@@ -1,7 +1,6 @@
 import TitleNavLayout from '../../layouts/TitleNavLayout/TitleNavLayout'
 import * as tools from '../../assets/styles/tools'
 import * as styles from './baby.styles'
-import { useNavigate } from 'react-router-dom'
 // Components
 import Section from '../../components/Section/Section'
 import CheckBox from '../../components/CheckBox/CheckBox'
@@ -11,11 +10,6 @@ import MuiRadioGroup from '../../mui/MuiRadioGroup/MuiRadioGroup'
 import MuiDatePicker from '../../mui/MuiDatePicker/MuiDatePicker'
 
 const Baby = () => {
-  const navigator = useNavigate()
-
-  const handleClick = () => {
-    navigator('/')
-  }
 
   return (
     <TitleNavLayout title="아이 등록">
@@ -36,7 +30,7 @@ const Baby = () => {
         <styles.ButtonText>+ 아이추가</styles.ButtonText>
       </Button>
       <tools.Divider className="my-5"></tools.Divider>
-      <Button fullWidth onClick={handleClick}>
+      <Button fullWidth url=" ">
         <span className="text-lg">등록 완료</span>
       </Button>
     </TitleNavLayout>

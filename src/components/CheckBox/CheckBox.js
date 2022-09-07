@@ -8,6 +8,8 @@ const CheckBox = ({ name, onClick, allChecked, ...props }) => {
   useEffect(() => {
     if (!allChecked) {
       setActvie(false)
+    } else {
+      setActvie(true)
     }
   }, [allChecked])
 

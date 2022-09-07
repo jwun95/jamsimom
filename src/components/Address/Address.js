@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
 import {MdOutlineArrowForwardIos } from 'react-icons/md'
 import * as styles from './Address.styles'
+import * as tools from '../../assets/styles/tools'
 
 const Address = () => {
   const [openPostcode, setOpenPostcode] = useState(false)
@@ -31,6 +32,7 @@ const Address = () => {
         {location}
         <MdOutlineArrowForwardIos />
       </styles.SearchAddressButton>
+      <tools.Input placeholder="나머지 주소 입력" />
       <Modal
         open={open}
         onClose={handleClose}
