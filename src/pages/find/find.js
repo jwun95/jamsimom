@@ -1,6 +1,6 @@
 // Base
 import TitleNavLayout from '../../layouts/TitleNavLayout/TitleNavLayout'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { data } from '../../data/db'
 // Components
 import CheckCard from '../../components/CheckCard/CheckCard'
@@ -18,15 +18,22 @@ const Find = () => {
   const [children, setChildren] = useState(data.baby)
   const [dateInfo, setDateInfo] = useState(false)
   const [timeInfo, setTimeInfo] = useState(null)
+  const [params, setParams] = useState(null)
   const [locationInfo, setLocationInfo] = useState('')
 
   const [selection, setSelection] = useState([])
 
+  useEffect(() => {
+    setParams({date: dateInfo, time: timeInfo, selection: selection})
+  }, [dateInfo, timeInfo, selection])
+
   const handle = {
     getTime: (time) => {
-      setTimeInfo(time)
+      setTimeInfo((prev) => {
+        return time
+      })
       console.log(timeInfo)
-    }
+    },
   }
 
   const handleDateInfo = (info) => {
@@ -82,10 +89,10 @@ const Find = () => {
       </Section>
 
       <Section subtitle="시간" required={true}>
-        <TimeSelector onGetTime={handle.getTime } />
+        <TimeSelector onGetTime={handle.getTime} />
         {timeInfo ? <Notification className="mt-10" /> : null}
       </Section>
-      <Button className="mt-5" fullWidth={true} url="/list">
+      <Button className="mt-5" fullWidth={true} url="/list" params={params}>
         시터 검색
       </Button>
     </TitleNavLayout>

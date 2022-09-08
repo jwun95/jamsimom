@@ -1,6 +1,6 @@
 // Base
 import * as styles from './TimeSelector.styles'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 // Mui
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
@@ -12,13 +12,14 @@ const TimeSelector = ({ onGetTime, ...props }) => {
 
   const open = Boolean(anchorEl)
 
+  useEffect(() => {
+    onGetTime(timeInfo)
+  })
+
   const handle = {
     change: (e) => {
-      const { value, name } = e.target
-      setTimeInfo({ ...props, [name]: parseInt(value) })
-      setTimeout(() => {
-        onGetTime(timeInfo)
-      }, 0)
+      
+      setTimeInfo({ [e.target.name]: e.target.value })
     },
     menuClick: (e) => {
       setAnchorEl(e.currentTarget)
@@ -59,18 +60,18 @@ const TimeSelector = ({ onGetTime, ...props }) => {
         <MenuItem onClick={() => handle.close('오후')}>오후</MenuItem>
       </Menu>
       <styles.TimeInput
-        type="text"
+        type="number"
         name="hour"
-        defaultValue={''}
+        defaultValue=""
         aria-label="hour"
         onChange={handle.change}
       />
       <span className="mr-6 font-bold">시부터</span>
       <styles.TimeInput
-        type="text"
-        defaultValue={''}
+        type="number"
+        defaultValue=""
         name="time"
-        aria-label="minute"
+        aria-label="time"
         onChange={handle.change}
       />
       <span>시간</span>

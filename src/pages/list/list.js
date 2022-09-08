@@ -2,6 +2,8 @@
 import TitleLayout from '../../layouts/TitleLayout/TitleLayout'
 import { data } from '../../data/db'
 import * as tools from '../../assets/styles/tools'
+import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 // Components
 import Tag from '../../components/Tag/Tag'
 import Profile from '../../components/Profile/Profile'
@@ -12,6 +14,10 @@ import Button from '../../components/Button/Button'
 import MuiAccordion from '../../mui/MuiAccordion/MuiAccordion'
 
 const List = () => {
+  const location = useLocation()
+  const navigator = useNavigate()
+
+  const [option, setOption] = useState(location.state)
 
   const handleClick = () => {
     navigator('/profile')
