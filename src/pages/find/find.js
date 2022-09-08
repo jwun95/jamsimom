@@ -24,40 +24,40 @@ const Find = () => {
   const [selection, setSelection] = useState([])
 
   useEffect(() => {
-    setParams({date: dateInfo, time: timeInfo, selection: selection})
-  }, [dateInfo, timeInfo, selection])
+    setParams({date: dateInfo, time: timeInfo, selection: selection, location:locationInfo})
+  }, [dateInfo, timeInfo, selection, locationInfo])
 
   const handle = {
-    getTime: (time) => {
-      setTimeInfo((prev) => {
-        return time
-      })
-      console.log(timeInfo)
+    // 시간
+    getTime: (e) => {
+      setTimeInfo({ ...timeInfo, [e.target.name]: parseInt(e.target.value) })
     },
-  }
-
-  const handleDateInfo = (info) => {
-    setDateInfo(info)
-  }
-
-  // 체크 카드 단일 선택
-  const handleSingleCheck = (checked, idx) => {
-    if (checked) {
-      setSelection((prev) => [...prev, idx])
-    } else {
-      setSelection(selection.filter((id) => id !== idx))
-    }
-  }
-
-  // 전체 선택
-  const handleAllCheck = (checked) => {
-    if (checked) {
-      const idxArray = []
-      children.forEach((item) => idxArray.push(item.id))
-      setSelection(idxArray)
-    } else {
-      setSelection([])
-    }
+    // 주소
+    getLocation: (location) => {
+      setLocationInfo(location)
+    },
+    // 날짜
+    getDate: (info) => {
+      setDateInfo(info)
+    },
+    // 체크 카드 단일 선택
+    singleCheck: (checked, idx) => {
+      if (checked) {
+        setSelection((prev) => [...prev, idx])
+      } else {
+        setSelection(selection.filter((id) => id !== idx))
+      }
+    },
+    // 전체 선택
+    allCheck: (checked) => {
+      if (checked) {
+        const idxArray = []
+        children.forEach((item) => idxArray.push(item.id))
+        setSelection(idxArray)
+      } else {
+        setSelection([])
+      }
+    },
   }
 
   // 아이 CheckCard
@@ -65,7 +65,7 @@ const Find = () => {
     <CheckCard
       key={child.id}
       child={child}
-      onClick={handleSingleCheck}
+      onClick={handle.singleCheck}
       checked={selection.includes(child.id) ? true : false}
     />
   ))
@@ -75,16 +75,16 @@ const Find = () => {
       <Section subtitle="돌봄대상" required={true}>
         <CheckBox
           name="전체선택"
-          onClick={handleAllCheck}
+          onClick={handle.allCheck}
           allChecked={selection.length === children.length ? true : false}
         />
         <ul className="mt-4">{list}</ul>
       </Section>
       <Section subtitle="주소" required={true}>
-        <Address />
+        <Address onGetLocation={ handle.getLocation } />
       </Section>
       <Section subtitle="날짜" required={true}>
-        <MuiDatePicker onClick={handleDateInfo} />
+        <MuiDatePicker onClick={handle.getDate} />
         {dateInfo ? <Graph className="mt-5" /> : null}
       </Section>
 
