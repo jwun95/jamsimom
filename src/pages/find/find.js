@@ -13,6 +13,7 @@ import Notification from '../../components/Notification/Notification'
 import TimeSelector from '../../components/TimeSelector/TimeSelector'
 // MUI
 import MuiDatePicker from '../../mui/MuiDatePicker/MuiDatePicker'
+import Menus from '../../components/Menus/Menus'
 
 const Find = () => {
   const [children, setChildren] = useState(data.baby)
@@ -24,7 +25,12 @@ const Find = () => {
   const [selection, setSelection] = useState([])
 
   useEffect(() => {
-    setParams({date: dateInfo, time: timeInfo, selection: selection, location:locationInfo})
+    setParams({
+      date: dateInfo,
+      time: timeInfo,
+      selection: selection,
+      location: locationInfo,
+    })
   }, [dateInfo, timeInfo, selection, locationInfo])
 
   const handle = {
@@ -36,9 +42,12 @@ const Find = () => {
     getLocation: (location) => {
       setLocationInfo(location)
     },
+    getDayType: (value) => {
+      setTimeInfo({ ...timeInfo, dayType: value })
+    },
     // 날짜
-    getDate: (info) => {
-      setDateInfo(info)
+    getDate: (date) => {
+      setDateInfo(date)
     },
     // 체크 카드 단일 선택
     singleCheck: (checked, idx) => {
@@ -81,7 +90,7 @@ const Find = () => {
         <ul className="mt-4">{list}</ul>
       </Section>
       <Section subtitle="주소" required={true}>
-        <Address onGetLocation={ handle.getLocation } />
+        <Address onGetLocation={handle.getLocation} />
       </Section>
       <Section subtitle="날짜" required={true}>
         <MuiDatePicker onClick={handle.getDate} />
@@ -89,7 +98,13 @@ const Find = () => {
       </Section>
 
       <Section subtitle="시간" required={true}>
-        <TimeSelector onGetTime={handle.getTime} />
+        <Menus
+          defaultType={'오전'}
+          className="inline-block"
+          menuItems={['오전', '오후']}
+          onClick={handle.getDayType}
+        />
+        <TimeSelector className="inline-block" onGetTime={handle.getTime} />
         {timeInfo ? <Notification className="mt-10" /> : null}
       </Section>
       <Button className="mt-5" fullWidth={true} url="/list" params={params}>

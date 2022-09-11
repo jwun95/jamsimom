@@ -22,7 +22,7 @@ const Button = ({
     <styles.Button
       fullWidth={fullWidth}
       outline={outline}
-      onClick={() => (url ? handle.goPage(url) : onClick())}
+      onClick={() => (url ? handle.goPage(url) : onClick)}
       {...props}
     >
       <span>{children}</span>
