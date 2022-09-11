@@ -3,6 +3,7 @@ import { Tag } from '../Tag/Tag.styles'
 import image from '../../static/profile.png'
 import * as tools from '../../assets/styles/tools'
 import star from '../../static/star.svg'
+import { Common } from '../../assets/styles/common'
 
 const defaultUser = {
   id: 1,
@@ -33,7 +34,7 @@ const Profile = ({ user = defaultUser, ...props }) => {
           <p className="mt-2">{user.address}</p>
           <tools.TagWrapper>
             {user.tags.map((item, idx) => (
-              <Tag isColor key={idx} fontSize="12px">
+              <Tag backgroundColor={Common.colors.primary_light} key={idx} fontSize="12px">
                 {item}
               </Tag>
             ))}

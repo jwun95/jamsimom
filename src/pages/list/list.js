@@ -1,8 +1,10 @@
 // Base
 import TitleLayout from '../../layouts/TitleLayout/TitleLayout'
 import { data } from '../../data/db'
+import { useState } from 'react'
 import * as tools from '../../assets/styles/tools'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Common } from '../../assets/styles/common'
 // Components
 import Tag from '../../components/Tag/Tag'
 import Profile from '../../components/Profile/Profile'
@@ -15,13 +17,22 @@ import MuiAccordion from '../../mui/MuiAccordion/MuiAccordion'
 const List = () => {
   const location = useLocation()
   const navigator = useNavigate()
+  const [selectionTags, setSelectionTags] = useState([])
 
-  const tags = ['동일성별', '등 / 하원', '조건']
+  const addOptions = [
+    { id: 1, option: '동일성별' },
+    { id: 2, option: '등 / 하원' },
+    { id: 3, option: '조건' },
+  ]
 
   const option = location.state
 
   const handleClick = () => {
     navigator('/profile')
+  }
+
+  const handleTagClick = (idx) => {
+    console.log(idx)
   }
 
   return (
@@ -30,8 +41,18 @@ const List = () => {
         <OptionList option={option} />
         <p className="mt-3">추가조건</p>
         <tools.TagWrapper className="mt-3">
-          {tags.map((item, idx) => (
-            <Tag key={idx}>{item}</Tag>
+          {addOptions.map((item) => (
+            <Tag
+              key={item.id}
+              backgroundColor={Common.colors.primary_lighter}
+              hoverOption={{
+                backgroundColor: Common.colors.primary_light,
+                borderColor: Common.colors.primary,
+              }}
+              onClick={() => handleTagClick(item.id)}
+            >
+              {item.option}
+            </Tag>
           ))}
         </tools.TagWrapper>
         <Button className="mt-5" outline={true} fullWidth={true}>
@@ -42,9 +63,9 @@ const List = () => {
       <Section subtitle={'검색결과( ' + data.user.length + ' )'}>
         {' '}
         <tools.TagWrapper>
-          <Tag>추천순</Tag>
-          <Tag>거리순</Tag>
-          <Tag>인기순</Tag>
+          <Tag borderColor="lightgray">추천순</Tag>
+          <Tag borderColor="lightgray">거리순</Tag>
+          <Tag borderColor="lightgray">인기순</Tag>
         </tools.TagWrapper>
         {data.user.map((item, idx) => {
           return (

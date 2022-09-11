@@ -29,23 +29,23 @@ const OptionList = ({ option, ...props }) => {
     <styles.OptionList {...props}>
       <styles.Option>
         <span>아이</span>
-        <Tag disabled isColor={false}>
+        <Tag disabled borderColor="lightgray">
           {option.selection.length}명
         </Tag>
       </styles.Option>
       <styles.Option>
         <span>주소</span>
-        <Tag disabled isColor={false}>
+        <Tag disabled borderColor="lightgray">
           {option.location}
         </Tag>
       </styles.Option>
       <styles.Option>
         <span>날짜</span>
-        <Tag disabled isColor={false}>
+        <Tag disabled borderColor="lightgray">
           {option.date}
         </Tag>
         <span className="ml-3">시간</span>
-        <Tag disabled isColor={false}>
+        <Tag disabled borderColor="lightgray">
           {timeInfo}
         </Tag>
       </styles.Option>

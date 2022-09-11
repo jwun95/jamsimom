@@ -1,8 +1,24 @@
 import * as styles from './Tag.styles'
 
-const Tag = ({ fontSize = '1rem', isColor = true, children, ...props }) => {
+const Tag = ({
+  fontSize = '1rem',
+  backgroundColor = null,
+  borderColor = null,
+  children,
+  hoverOption=null,
+  onClick,
+  selected,
+  ...props
+}) => {
   return (
-    <styles.Tag fontSize={fontSize} isColor={isColor} {...props}>
+    <styles.Tag
+      onClick={onClick}
+      fontSize={fontSize}
+      backgroundColor={backgroundColor}
+      borderColor={borderColor}
+      hoverOption={hoverOption}
+      {...props}
+    >
       {children}
     </styles.Tag>
   )
