@@ -13,7 +13,7 @@ import Notification from '../../components/Notification/Notification'
 import TimeSelector from '../../components/TimeSelector/TimeSelector'
 // MUI
 import MuiDatePicker from '../../mui/MuiDatePicker/MuiDatePicker'
-import Menus from '../../components/Menus/Menus'
+import MuiMenu from '../../mui/MuiMenu/MuiMenu'
 
 const Find = () => {
   const [children, setChildren] = useState(data.baby)
@@ -98,7 +98,7 @@ const Find = () => {
       </Section>
 
       <Section subtitle="시간" required={true}>
-        <Menus
+        <MuiMenu
           defaultType={'오전'}
           className="inline-block"
           menuItems={['오전', '오후']}

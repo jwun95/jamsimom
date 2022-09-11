@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { Common } from "../../assets/styles/common";
+import styled from '@emotion/styled'
+import { Common } from '../../assets/styles/common'
 
 export const MenusButton = styled.button`
   width: 40px;

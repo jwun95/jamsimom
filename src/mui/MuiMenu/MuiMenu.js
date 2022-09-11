@@ -1,14 +1,18 @@
 // Base
-import { useState } from 'react'
-import * as styles from './Menus.styles'
+import { useState, useEffect } from 'react'
+import * as styles from './MuiMenu.styles'
 // Mui
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 
-const Menus = ({ defaultType, menuItems = [], onClick, ...props }) => {
+const MuiMenu = ({ defaultType, menuItems = [], onClick, ...props }) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [when, setWhen] = useState(defaultType)
   const open = Boolean(anchorEl)
+
+  useEffect(() => {
+    onClick('오전')
+  }, [])
 
   const handle = {
     close: (value) => {
@@ -51,4 +55,4 @@ const Menus = ({ defaultType, menuItems = [], onClick, ...props }) => {
   )
 }
 
-export default Menus
+export default MuiMenu

@@ -1,46 +1,54 @@
 import * as styles from './OptionList.styles'
 import Tag from '../Tag/Tag'
-import * as tools from '../../assets/styles/tools'
 
+const computedTime = (time) => {
+  let result
+  if (time.hour + time.duration > 12 && time.hour < 12) {
+    const calculation = time.hour + time.duration - 12
+    result =
+      time.dayType === '오전'
+        ? time.dayType + ' ' + time.hour + '시-오후' + calculation + '시'
+        : time.dayType + ' ' + time.hour + '시-오전' + calculation + '시'
+  }
+  result =
+    time.dayType +
+    ' ' +
+    time.hour +
+    '시-' +
+    time.dayType +
+    (time.hour + time.duration - 12) +
+    '시'
 
-const OptionList = ({
-  num = 1,
-    address = '서울특별시 강남구 삼성동',
-    date = '2022-09-05',
-    tags = ['동일성별', '등 / 하원', '조건'],
-  time='오후 9시-11시',
-  ...props
-}) => {
+  return result
+}
+
+const OptionList = ({ option, ...props }) => {
+  const timeInfo = computedTime(option.time)
+
   return (
     <styles.OptionList {...props}>
       <styles.Option>
         <span>아이</span>
         <Tag disabled isColor={false}>
-          {num}명
+          {option.selection.length}명
         </Tag>
       </styles.Option>
       <styles.Option>
         <span>주소</span>
         <Tag disabled isColor={false}>
-          {address}
+          {option.location}
         </Tag>
       </styles.Option>
       <styles.Option>
         <span>날짜</span>
         <Tag disabled isColor={false}>
-          {date}
+          {option.date}
         </Tag>
         <span className="ml-3">시간</span>
         <Tag disabled isColor={false}>
-          {time}
+          {timeInfo}
         </Tag>
       </styles.Option>
-      <p className="mt-3">추가조건</p>
-      <tools.TagWrapper className="mt-3">
-        {tags.map((item, idx) => (
-          <Tag key={idx}>{item}</Tag>
-        ))}
-      </tools.TagWrapper>
     </styles.OptionList>
   )
 }

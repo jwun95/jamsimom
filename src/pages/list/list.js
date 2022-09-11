@@ -2,7 +2,6 @@
 import TitleLayout from '../../layouts/TitleLayout/TitleLayout'
 import { data } from '../../data/db'
 import * as tools from '../../assets/styles/tools'
-import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 // Components
 import Tag from '../../components/Tag/Tag'
@@ -17,7 +16,9 @@ const List = () => {
   const location = useLocation()
   const navigator = useNavigate()
 
-  const [option, setOption] = useState(location.state)
+  const tags = ['동일성별', '등 / 하원', '조건']
+
+  const option = location.state
 
   const handleClick = () => {
     navigator('/profile')
@@ -26,13 +27,19 @@ const List = () => {
   return (
     <TitleLayout title="시터 목록">
       <MuiAccordion title="검색 조건">
-        <OptionList />
+        <OptionList option={option} />
+        <p className="mt-3">추가조건</p>
+        <tools.TagWrapper className="mt-3">
+          {tags.map((item, idx) => (
+            <Tag key={idx}>{item}</Tag>
+          ))}
+        </tools.TagWrapper>
         <Button className="mt-5" outline={true} fullWidth={true}>
           수정
         </Button>
       </MuiAccordion>
       <tools.Divider className="my-3"></tools.Divider>
-      <Section subtitle="검색결과 ( 4 )">
+      <Section subtitle={'검색결과( ' + data.user.length + ' )'}>
         {' '}
         <tools.TagWrapper>
           <Tag>추천순</Tag>

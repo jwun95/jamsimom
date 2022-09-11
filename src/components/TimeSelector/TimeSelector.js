@@ -23,8 +23,8 @@ const TimeSelector = ({ onGetTime, ...props }) => {
       <styles.TimeInput
         type="text"
         defaultValue=""
-        name="time"
-        aria-label="time"
+        name="duration"
+        aria-label="duration"
         onChange={handleChange}
       />
       <span>시간</span>

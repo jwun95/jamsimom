@@ -1,15 +1,20 @@
+// Base
 import DaumPostcode from 'react-daum-postcode'
 import { useState } from 'react'
-import Box from '@mui/material/Box'
-import Modal from '@mui/material/Modal'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import * as styles from './Address.styles'
 import * as tools from '../../assets/styles/tools'
+import debounce from '../../utils/debounce'
+// Mui
+import Box from '@mui/material/Box'
+import Modal from '@mui/material/Modal'
 
 const Address = ({ onGetLocation, ...props }) => {
   const [openPostcode, setOpenPostcode] = useState(false)
   const [open, setOpen] = useState(false)
   const [location, setLocation] = useState('주소 찾기')
+
+  const handleDebounce = debounce((e) => onGetLocation(location + ' ' + e.target.value), 500)
 
   const handle = {
     // 버튼 클릭 이벤트
@@ -26,6 +31,9 @@ const Address = ({ onGetLocation, ...props }) => {
     },
     close: () => {
       setOpen(false)
+    },
+    change: (e) => {
+      handleDebounce(e)
     }
   }
   return (
@@ -34,7 +42,7 @@ const Address = ({ onGetLocation, ...props }) => {
         {location}
         <MdOutlineArrowForwardIos />
       </styles.SearchAddressButton>
-      <tools.Input placeholder="나머지 주소 입력" />
+      <tools.Input disabled={location === '주소 찾기' ? true : false} placeholder="나머지 주소 입력" onChange={handle.change} />
       <Modal
         open={open}
         onClose={handle.close}
