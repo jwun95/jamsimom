@@ -1,6 +1,11 @@
 import styled from '@emotion/styled'
+import { ITagProps } from './Tag'
 
-export const Tag = styled.button`
+interface styledProps extends ITagProps {
+
+}
+
+export const Tag = styled.button<styledProps>`
   font-size: ${({ fontSize }) => fontSize};
   background-color: ${({ backgroundColor }) =>
     backgroundColor ? `${backgroundColor}` : 'white'};

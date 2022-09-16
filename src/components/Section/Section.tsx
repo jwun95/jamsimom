@@ -1,11 +1,21 @@
 import * as styles from './Section.styles'
 import { IoIosArrowForward } from 'react-icons/io'
+import React, { ReactNode } from 'react'
 
-const Section = ({
+interface ISectionProps {
+  subtitle: string
+  add: boolean
+  required: boolean
+  onClick: () => void
+  children: ReactNode
+}
+
+const Section:React.FC<ISectionProps> = ({
   children,
   subtitle = '',
   add = false,
   required = false,
+  onClick,
   ...props
 }) => {
   return (
@@ -16,7 +26,7 @@ const Section = ({
           {required ? <styles.Required> *</styles.Required> : null}
         </span>
         {add ? (
-          <button onClick={props.onClick}>
+          <button onClick={onClick}>
             더보기
             <IoIosArrowForward className="inline-block" />
           </button>

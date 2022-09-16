@@ -1,11 +1,25 @@
 import * as styles from './Tag.styles'
+import React from 'react'
 
-const Tag = ({
+export interface ITagProps {
+  fontSize: string
+  backgroundColor: string | null
+  borderColor: string | null
+  children: React.ReactNode
+  hoverOption: {
+    backgroundColor: string
+    borderColor: string
+  } | null
+  selected?: boolean
+  onClick: () => void
+}
+
+const Tag: React.FC<ITagProps> = ({
   fontSize = '1rem',
   backgroundColor = null,
   borderColor = null,
   children,
-  hoverOption=null,
+  hoverOption = null,
   onClick,
   selected,
   ...props

@@ -1,8 +1,9 @@
 import { MdArrowBackIosNew } from 'react-icons/md'
 import * as styles from './TitleHeader.styles'
 import { useNavigate } from 'react-router-dom'
+import React from 'react'
 
-const TitleHeader = (props) => {
+const TitleHeader = ({title}:{title:string}) => {
 
   let navigate = useNavigate()
 
@@ -11,7 +12,7 @@ const TitleHeader = (props) => {
       <button onClick={() => navigate(-1)}>
         <MdArrowBackIosNew />
       </button>
-      <span className="ml-3">{ props.title }</span>
+      <span className="ml-3">{ title }</span>
     </styles.Header>
   )
 }
