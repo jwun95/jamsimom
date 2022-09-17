@@ -1,6 +1,7 @@
 import * as styles from './Graph.styles'
 import { useState } from 'react'
 import graph from '../../static/graph.svg'
+import React from 'react'
 
 const Graph = ({...props }) => {
     const [toggleActive, setToggleActive] = useState(true)

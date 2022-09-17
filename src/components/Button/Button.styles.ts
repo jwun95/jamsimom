@@ -1,6 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { Common } from '../../assets/styles/common'
+import {IButtonProps} from './Button'
+
+interface styledProps extends IButtonProps {
+
+}
 
 const outLine = css`
   border: 1px solid ${Common.colors.primary};
@@ -19,7 +24,7 @@ const noLine = css`
   }
 `
 
-export const Button = styled.button`
+export const Button = styled.button<styledProps>`
   ${({ outline }) =>
     outline ? outLine : noLine} // props로 들어와서 {}로 감싸야한다.
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};

@@ -1,8 +1,15 @@
 import * as styles from './CheckBox.styles'
 import * as tools from '../../assets/styles/tools'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
-const CheckBox = ({ name, onClick, allChecked, ...props }) => {
+
+interface ICheckBoxProps {
+  name: string
+  onClick: (e: boolean) => void
+  allChecked: boolean
+}
+
+const CheckBox = ({ name, onClick, allChecked, ...props }: ICheckBoxProps) => {
   const [active, setActvie] = useState(false)
 
   useEffect(() => {

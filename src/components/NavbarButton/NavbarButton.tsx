@@ -2,18 +2,19 @@ import { RiHome5Line } from 'react-icons/ri'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { FiUser } from 'react-icons/fi'
 import * as styles from './NavbarButton.styles'
+import React from 'react'
 
-const NavbarButton = (props) => {
+const NavbarButton = ({name}: {name: string}) => {
   let button
 
-  if (props.name === 'home') {
+  if (name === 'home') {
     button = (
       <styles.LinkButton to='/' >
         <RiHome5Line />
         <span>홈</span>
       </styles.LinkButton>
     )
-  } else if (props.name === 'search') {
+  } else if (name === 'search') {
     button = (
       <styles.LinkButton to="/list">
         <AiOutlineSearch />

@@ -2,19 +2,20 @@ import * as styles from './Tag.styles'
 import React from 'react'
 
 export interface ITagProps {
-  fontSize: string
-  backgroundColor: string | null
-  borderColor: string | null
+  fontSize?: string
+  backgroundColor?: string | null
+  borderColor?: string | null
   children: React.ReactNode
-  hoverOption: {
+  hoverOption?: {
     backgroundColor: string
     borderColor: string
   } | null
   selected?: boolean
-  onClick: () => void
+  onClick?: () => void
+  disabled?: boolean
 }
 
-const Tag: React.FC<ITagProps> = ({
+const Tag = ({
   fontSize = '1rem',
   backgroundColor = null,
   borderColor = null,
@@ -23,7 +24,7 @@ const Tag: React.FC<ITagProps> = ({
   onClick,
   selected,
   ...props
-}) => {
+}: ITagProps) => {
   return (
     <styles.Tag
       onClick={onClick}

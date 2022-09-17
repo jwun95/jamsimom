@@ -4,6 +4,7 @@ import image from '../../static/profile.png'
 import * as tools from '../../assets/styles/tools'
 import star from '../../static/star.svg'
 import { Common } from '../../assets/styles/common'
+import React from 'react'
 
 const defaultUser = {
   id: 1,

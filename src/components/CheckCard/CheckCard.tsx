@@ -1,8 +1,23 @@
 import * as styles from './CheckCard.styles'
 import * as tools from '../../assets/styles/tools'
 import { useEffect, useState } from 'react'
+import React from 'react'
 
-const CheckCard = ({ child, idx, onClick, checked, ...props }) => {
+interface ICheckCardProps {
+  child: ChildProps
+  idx: number
+  onClick: (e:boolean, id:number) => void
+  checked: boolean
+}
+
+type ChildProps = {
+  id: number
+  name: string
+  sex: string
+  age: number
+}
+
+const CheckCard = ({ child, idx, onClick, checked, ...props }:ICheckCardProps) => {
   const [state, setState] = useState(false)
 
   const handleClick = () => {

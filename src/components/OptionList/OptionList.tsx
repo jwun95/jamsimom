@@ -1,7 +1,21 @@
 import * as styles from './OptionList.styles'
 import Tag from '../Tag/Tag'
+import React from 'react'
 
-const computedTime = (time) => {
+type TimeProps = {
+  hour: number
+  duration: number
+  dayType: string
+}
+
+type OptionProps = {
+  selection: string[]
+  location: string
+  date: string
+  time: TimeProps
+}
+
+const computedTime = (time:TimeProps) => {
   let result
   if (time.hour + time.duration > 12 && time.hour < 12) {
     const calculation = time.hour + time.duration - 12
@@ -22,7 +36,7 @@ const computedTime = (time) => {
   return result
 }
 
-const OptionList = ({ option, ...props }) => {
+const OptionList = ({ option, ...props }:{option: OptionProps}) => {
   const timeInfo = computedTime(option.time)
 
   return (

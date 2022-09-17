@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom'
 import { Common } from './common'
 import { BsCheckSquare } from 'react-icons/bs'
 
+interface styledLinkButtonProps {
+  outline: boolean
+  fullWidth: boolean
+}
+
 export const Divider = styled.div`
   border-top: 3px solid #f8f8f8;
 `
@@ -67,7 +72,7 @@ const noLine = css`
   }
 `
 
-export const LinkButton = styled(Link)`
+export const LinkButton = styled(Link)<styledLinkButtonProps>`
   ${({ outline }) =>
     outline ? outLine : noLine} // props로 들어와서 {}로 감싸야한다.
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};

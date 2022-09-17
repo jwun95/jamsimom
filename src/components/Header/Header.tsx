@@ -1,6 +1,7 @@
 import * as styles from './Header.styles'
 import Logo from '../../static/logo.svg'
 import { BsGear } from 'react-icons/bs'
+import React from 'react'
 
 const Header = () => {
   const handleSetting = () => {
