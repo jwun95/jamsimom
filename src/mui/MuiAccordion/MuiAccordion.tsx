@@ -1,4 +1,6 @@
+// Base
 import * as styles from './MuiAccordion.styles'
+import React, { ReactNode } from 'react';
 // Mui
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
@@ -6,8 +8,8 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
-// p태그 오류
-const MuiAccordion = ({ title, children, ...props }) => {
+
+export function MuiAccordion({ title, children, ...props }: {title: string, children: ReactNode}) {
   return (
     <div {...props}>
       {' '}
@@ -24,5 +26,3 @@ const MuiAccordion = ({ title, children, ...props }) => {
     </div>
   )
 }
-
-export default MuiAccordion

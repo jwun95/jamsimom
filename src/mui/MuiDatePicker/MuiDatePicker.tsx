@@ -1,10 +1,16 @@
+// Base
 import * as styles from './MuiDatePicker.styles'
+import React from 'react'
+// Mui
 import TextField from '@mui/material/TextField'
 
-const MuiDatePicker = ({ onClick, ...props }) => {
+export function MuiDatePicker ({ onClick, ...props }: {onClick?: (value:string) => void}) {
 
-  const handleChange = (event) => {
-    onClick(event.target.value)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (typeof onClick !== 'undefined') {
+      onClick(event.target.value)
+    }
+    return
   }
 
   return (
@@ -22,5 +28,3 @@ const MuiDatePicker = ({ onClick, ...props }) => {
     />
   )
 }
-
-export default MuiDatePicker

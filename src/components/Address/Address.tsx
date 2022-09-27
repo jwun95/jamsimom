@@ -4,17 +4,18 @@ import { useState } from 'react'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import * as styles from './Address.styles'
 import * as tools from '../../assets/styles/tools'
-import debounce from '../../utils/debounce'
+import {debounce} from '../../utils/debounce'
+import React from 'react'
 // Mui
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
 
-const Address = ({ onGetLocation, ...props }) => {
+const Address = ({ onGetLocation, ...props }:{onGetLocation: (value:string)=> void}) => {
   const [openPostcode, setOpenPostcode] = useState(false)
   const [open, setOpen] = useState(false)
   const [location, setLocation] = useState('주소 찾기')
 
-  const handleDebounce = debounce((e) => onGetLocation(location + ' ' + e.target.value), 500)
+  const handleDebounce = debounce((e:React.ChangeEvent<HTMLInputElement>) => onGetLocation(location + ' ' + e.target.value), 500)
 
   const handle = {
     // 버튼 클릭 이벤트
@@ -24,7 +25,7 @@ const Address = ({ onGetLocation, ...props }) => {
     },
 
     // 주소 선택 이벤트
-    selectAddress: (data) => {
+    selectAddress: (data:) => {
       setLocation(data.address)
       setOpen(false)
       setOpenPostcode(false)

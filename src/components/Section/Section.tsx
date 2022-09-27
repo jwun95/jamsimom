@@ -3,11 +3,11 @@ import { IoIosArrowForward } from 'react-icons/io'
 import React, { ReactNode } from 'react'
 
 interface ISectionProps {
-  subtitle: string
-  add: boolean
-  required: boolean
-  onClick: () => void
-  children: ReactNode
+  subtitle?: string
+  add?: boolean
+  required?: boolean
+  onClick?: () => void
+  children?: ReactNode
 }
 
 const Section:React.FC<ISectionProps> = ({

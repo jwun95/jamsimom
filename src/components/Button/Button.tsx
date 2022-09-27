@@ -4,9 +4,9 @@ import {ReactNode} from 'react'
 import React from 'react'
 
 export interface IButtonProps {
-  fullWidth: boolean
-  outline: boolean
-  onClick: () => void
+  fullWidth?: boolean
+  outline?: boolean
+  onClick?: () => void
   url?: string | null
   params?: Object
   children: ReactNode

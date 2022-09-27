@@ -1,15 +1,16 @@
-import TitleNavLayout from '../../layouts/TitleNavLayout/TitleNavLayout'
+import {TitleNavLayout} from '../../layouts/TitleNavLayout/TitleNavLayout'
 import * as tools from '../../assets/styles/tools'
 import * as styles from './baby.styles'
+import React from 'react'
 // Components
 import Section from '../../components/Section/Section'
 import CheckBox from '../../components/CheckBox/CheckBox'
 import Button from '../../components/Button/Button'
 // Mui
 import MuiRadioGroup from '../../mui/MuiRadioGroup/MuiRadioGroup'
-import MuiDatePicker from '../../mui/MuiDatePicker/MuiDatePicker'
+import {MuiDatePicker} from '../../mui/MuiDatePicker/MuiDatePicker'
 
-const Baby = () => {
+export function Baby () {
 
   return (
     <TitleNavLayout title="아이 등록">
@@ -36,5 +37,3 @@ const Baby = () => {
     </TitleNavLayout>
   )
 }
-
-export default Baby

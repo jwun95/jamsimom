@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react'
 
 
 interface ICheckBoxProps {
-  name: string
-  onClick: (e: boolean) => void
-  allChecked: boolean
+  name?: string
+  onClick?: (e: boolean) => void
+  allChecked?: boolean
 }
 
 const CheckBox = ({ name, onClick, allChecked, ...props }: ICheckBoxProps) => {
@@ -22,7 +22,9 @@ const CheckBox = ({ name, onClick, allChecked, ...props }: ICheckBoxProps) => {
 
   const handleClick = () => {
     setActvie(!active)
-    onClick(!active)
+    if (typeof onClick !== 'undefined') {
+      onClick(!active)
+    }
   }
 
   return (

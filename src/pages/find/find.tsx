@@ -1,7 +1,8 @@
 // Base
-import TitleNavLayout from '../../layouts/TitleNavLayout/TitleNavLayout'
+import {TitleNavLayout} from '../../layouts/TitleNavLayout/TitleNavLayout'
 import { useState, useEffect } from 'react'
 import { data } from '../../data/db'
+import React from 'react'
 // Components
 import CheckCard from '../../components/CheckCard/CheckCard'
 import Button from '../../components/Button/Button'
@@ -12,10 +13,10 @@ import CheckBox from '../../components/CheckBox/CheckBox'
 import Notification from '../../components/Notification/Notification'
 import TimeSelector from '../../components/TimeSelector/TimeSelector'
 // MUI
-import MuiDatePicker from '../../mui/MuiDatePicker/MuiDatePicker'
+import {MuiDatePicker} from '../../mui/MuiDatePicker/MuiDatePicker'
 import MuiMenu from '../../mui/MuiMenu/MuiMenu'
 
-const Find = () => {
+export function Find() {
   const [children, setChildren] = useState(data.baby)
   const [dateInfo, setDateInfo] = useState(false)
   const [timeInfo, setTimeInfo] = useState(null)
@@ -39,18 +40,18 @@ const Find = () => {
       setTimeInfo({ ...timeInfo, [e.target.name]: parseInt(e.target.value) })
     },
     // 주소
-    getLocation: (location) => {
+    getLocation: (location:string) => {
       setLocationInfo(location)
     },
-    getDayType: (value) => {
+    getDayType: (value:string) => {
       setTimeInfo({ ...timeInfo, dayType: value })
     },
     // 날짜
-    getDate: (date) => {
+    getDate: (date:string) => {
       setDateInfo(date)
     },
     // 체크 카드 단일 선택
-    singleCheck: (checked, idx) => {
+    singleCheck: (checked:boolean, idx:number) => {
       if (checked) {
         setSelection((prev) => [...prev, idx])
       } else {
@@ -60,7 +61,7 @@ const Find = () => {
     // 전체 선택
     allCheck: (checked) => {
       if (checked) {
-        const idxArray = []
+        const idxArray: number[] = []
         children.forEach((item) => idxArray.push(item.id))
         setSelection(idxArray)
       } else {
@@ -113,5 +114,3 @@ const Find = () => {
     </TitleNavLayout>
   )
 }
-
-export default Find

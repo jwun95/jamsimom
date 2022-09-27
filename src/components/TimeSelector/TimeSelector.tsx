@@ -1,12 +1,13 @@
 // Base
 import * as styles from './TimeSelector.styles'
-import debounce from '../../utils/debounce'
+import {debounce} from '../../utils/debounce'
+import React from 'react'
 
-const TimeSelector = ({ onGetTime, ...props }) => {
+export function TimeSelector({ onGetTime, className, ...props }: {onGetTime: (e:Function) => void, className?: string}) {
 
   const handleDebounce = debounce((e) => onGetTime(e), 500)
 
-  const handleChange = (e) => {
+  const handleChange = (e:React.FormEvent<HTMLInputElement>) => {
     handleDebounce(e)
   }
 
@@ -17,7 +18,7 @@ const TimeSelector = ({ onGetTime, ...props }) => {
         name="hour"
         defaultValue=""
         aria-label="hour"
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e)}
       />
       <span className="mr-6 font-bold">시부터</span>
       <styles.TimeInput
@@ -25,7 +26,7 @@ const TimeSelector = ({ onGetTime, ...props }) => {
         defaultValue=""
         name="duration"
         aria-label="duration"
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e)}
       />
       <span>시간</span>
     </div>
